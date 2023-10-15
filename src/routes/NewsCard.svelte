@@ -1,1 +1,194 @@
-<!-- News card element - would contain image, title -->
+<!-- FILEPATH: /Users/ashwinprasanth/Documents/Coding/dev-team-task/src/routes/NewsCard.svelte -->
+<!-- News card element - would contain image (if exists), title and source -->
+<!-- On clicking the element, it would open a pop-up like window with more text (maybe summarised) along with a link to read more -->
+
+<script lang="ts">
+    let isModalOpen = false;
+
+    import './styles.css';
+    import default_news from './default-news.png';
+
+    import { scale,fade } from 'svelte/transition';
+
+
+    export let title: string;
+    export let source: string;
+    export let image: string;
+    export let description: string;
+    export let sourceUrl: string;
+
+    const openModal = () => { 
+        isModalOpen = true;
+    };
+
+    const closeModal = () => {
+        isModalOpen = false;
+    };
+
+    const stripTitle = (title: string) => {
+        // try splitting based on "|"
+        const titleSplit = title.split('|');
+        if (titleSplit.length > 1) {
+            return titleSplit[0];
+        }
+        else{
+            // try splitting based on "-"
+            const titleSplit = title.split('-');
+            // make sure that the hyphen was not part of the title
+            if (titleSplit.length > 1) {
+                return titleSplit.slice(0, -1).join('-');
+            }
+        }
+    };
+
+</script>
+
+<div class="news-card" tabindex="0" on:click={openModal} on:keydown|preventDefault={e => e.key === 'Enter' && openModal()} role="button" aria-label="Open news article">
+    <img class="news-card-image" src={image || default_news} alt={default_news}/>
+    <div class="news-card-text">
+        <h3 style="text-align: center;">{stripTitle(title)}</h3>
+        <p class="news-card-source" style="text-align: center;">{source}</p>
+    </div>
+</div>
+
+{#if isModalOpen}
+    <div class="modal" id="news-modal" in:fade>
+        <div class="modal-content" in:scale>
+            <h3>{stripTitle(title)}</h3>
+            <img src={image || default_news} alt={default_news}/>
+            <!-- add a failsafe if description is null -->
+            {#if description}
+                <p>{description}</p>
+            {/if}
+            <a href="{sourceUrl}" target="_blank" class="read-more-link">See More</a>
+            <button class="close-modal-button" on:click={closeModal}>&larr; Back</button>
+        </div>
+    </div>
+{/if}
+
+<style>
+
+    .modal {
+        position: fixed;
+        top: 0; 
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+        background-color: white;
+        border-radius: 20px;
+        overflow-y: auto;
+        /* define width and height based on size of screen */
+        width: 70%;
+        height: 70%;
+        padding: 20px;
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+        /* center allign all the items */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content img {
+        width: 60%;
+        height: 60%;
+        margin-bottom: 20px;
+    }
+
+    .close-modal-button {
+        margin-top: 10px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        color: #fff;
+        background-image: linear-gradient(to right, #f6d365 0%, #fda085 100%);
+        transition: all 0.2s ease-in-out;
+    }
+
+    .close-modal-button:hover {
+        background-position: right center;
+    }
+
+    .close-modal-button {
+        margin-top: 10px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        color: #fff;
+        background-image: linear-gradient(to right, #ff8a00 0%, #da1b60 100%);
+        transition: all 0.2s ease-in-out;
+    }
+
+    .read-more-link {
+        display: block;
+        margin-top: 10px;
+        padding: 10px 20px;
+        border-radius: 20px;
+        background-image: linear-gradient(to right, #f6d365 0%, #fda085 100%);
+        color: white;
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .read-more-link:hover {
+        background-position: right center;
+    }
+    
+    .news-card {
+        display: inline-block;
+        width: 30%;
+        margin: 1%;
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+        border-radius: 10px;
+        overflow: hidden;
+        vertical-align: top;
+        cursor: pointer;
+    }
+
+    .news-card-image {
+        width: 100%; 
+        height: 200px;
+    }
+
+    .news-card-text {
+        padding: 10px;
+    }
+
+    .news-card-text h3 {
+        margin-top: 0;
+    }
+
+    .news-card-text p {
+        margin-bottom: 0;
+    }
+
+    .news-card-source {
+        font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+        .news-card {
+            width: 45%;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .news-card {
+            width: 100%;
+        }
+    }
+</style>
