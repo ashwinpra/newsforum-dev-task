@@ -30,6 +30,20 @@ body {
 		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%);
 }
 
+h1 {
+	font-size: 5rem;
+}
+
+h2 {
+	font-size: 1.7rem;
+}
+
+h1, 
+h2 
+{	
+	font-family: 'Courier New', Courier, monospace;
+}
+
 h1,
 h2,
 p {
@@ -38,6 +52,7 @@ p {
 
 p {
 	line-height: 1.5;
+	font-size: 1.2rem;
 }
 
 a {
@@ -47,15 +62,6 @@ a {
 
 a:hover {
 	text-decoration: underline;
-}
-
-h1 {
-	font-size: 2rem;
-	text-align: center;
-}
-
-h2 {
-	font-size: 1rem;
 }
 
 pre {
@@ -88,11 +94,11 @@ button:focus:not(:focus-visible) {
 	outline: none;
 }
 
-@media (min-width: 720px) {
+/* @media (min-width: 720px) { 
 	h1 {
 		font-size: 2.4rem;
 	}
-}
+} */
 
 .visually-hidden {
 	border: 0;

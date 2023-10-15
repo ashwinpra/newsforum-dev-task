@@ -11,7 +11,7 @@
 	</main>
 
 	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+		<p>Made with &lt;3 by  <a href="https:/github.com/ashwinpra" target="_blank"> Ashwin Prasanth</a></p>
 	</footer>
 </div>
 
@@ -38,16 +38,11 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding: 12px;
+		padding: 1px;
 	}
 
 	footer a {
 		font-weight: bold;
 	}
 
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
-	}
 </style>

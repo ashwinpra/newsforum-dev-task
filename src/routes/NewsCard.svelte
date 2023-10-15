@@ -1,0 +1,1 @@
+<!-- News card element - would contain image, title -->
