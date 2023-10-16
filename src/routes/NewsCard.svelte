@@ -3,19 +3,20 @@
 <!-- On clicking the element, it would open a pop-up like window with more text (maybe summarised) along with a link to read more -->
 
 <script lang="ts">
-    let isModalOpen = false;
-
+    
     import './styles.css';
     import default_news from './default-news.png';
-
+    
     import { scale,fade } from 'svelte/transition';
-
-
+    
+    
     export let title: string;
     export let source: string;
     export let image: string;
     export let description: string;
     export let sourceUrl: string;
+    
+    let isModalOpen = false;
 
     const openModal = () => { 
         isModalOpen = true;
@@ -34,7 +35,6 @@
         else{
             // try splitting based on "-"
             const titleSplit = title.split('-');
-            // make sure that the hyphen was not part of the title
             if (titleSplit.length > 1) {
                 return titleSplit.slice(0, -1).join('-');
             }
@@ -56,7 +56,6 @@
         <div class="modal-content" in:scale>
             <h3>{stripTitle(title)}</h3>
             <img src={image || default_news} alt={default_news}/>
-            <!-- add a failsafe if description is null -->
             {#if description}
                 <p>{description}</p>
             {/if}
@@ -111,7 +110,7 @@
         border: 1px solid #ccc;
         cursor: pointer;
         color: #fff;
-        background-image: linear-gradient(to right, #f6d365 0%, #fda085 100%);
+        background-image: linear-gradient(to right, #2697ff 0%, #62b2fc 100%);
         transition: all 0.2s ease-in-out;
     }
 
@@ -119,24 +118,12 @@
         background-position: right center;
     }
 
-    .close-modal-button {
-        margin-top: 10px;
-        padding: 5px 10px;
-        border-radius: 5px;
-        background-color: #f2f2f2;
-        border: 1px solid #ccc;
-        cursor: pointer;
-        color: #fff;
-        background-image: linear-gradient(to right, #ff8a00 0%, #da1b60 100%);
-        transition: all 0.2s ease-in-out;
-    }
-
     .read-more-link {
         display: block;
         margin-top: 10px;
         padding: 10px 20px;
         border-radius: 20px;
-        background-image: linear-gradient(to right, #f6d365 0%, #fda085 100%);
+        background-image: linear-gradient(to left, #65b3fc 0%, #0c84f3 100%);
         color: white;
         font-weight: 600;
         text-align: center;

@@ -35,6 +35,8 @@
 	"type": "module",
 	"dependencies": {
 		"@fontsource/fira-mono": "^5.0.8",
-		"@neoconfetti/svelte": "^1.0.0"
+		"@neoconfetti/svelte": "^1.0.0",
+		"fuse.js": "^6.6.2",
+		"iconify-icon": "^1.0.8"
 	}
 }
