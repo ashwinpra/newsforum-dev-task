@@ -27,6 +27,8 @@
     };
 
     const stripTitle = (title: string) => {
+        // remove leading and trailing spaces
+        title = title.trim();
         // try splitting based on "|"
         const titleSplit = title.split('|');
         if (titleSplit.length > 1) {
@@ -46,8 +48,8 @@
 <div class="news-card" tabindex="0" on:click={openModal} on:keydown|preventDefault={e => e.key === 'Enter' && openModal()} role="button" aria-label="Open news article">
     <img class="news-card-image" src={image || default_news} alt={default_news}/>
     <div class="news-card-text">
-        <h3 style="text-align: center;">{stripTitle(title)}</h3>
-        <p class="news-card-source" style="text-align: center;">{source}</p>
+        <h3 class="news-title">{stripTitle(title)}</h3>
+        <p class="news-card-source">{source}</p>
     </div>
 </div>
 
@@ -86,7 +88,7 @@
         overflow-y: auto;
         /* define width and height based on size of screen */
         width: 70%;
-        height: 70%;
+        height: 90%;
         padding: 20px;
         box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
         /* center allign all the items */
@@ -97,8 +99,8 @@
     }
 
     .modal-content img {
-        width: 60%;
-        height: 60%;
+        width: 70%;
+        height: 70%;
         margin-bottom: 20px;
     }
 
@@ -143,28 +145,38 @@
         border-radius: 10px;
         overflow: hidden;
         vertical-align: top;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         cursor: pointer;
     }
 
     .news-card-image {
-        width: 100%; 
+        width: 300px; 
         height: 200px;
     }
 
     .news-card-text {
         padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
     }
 
     .news-card-text h3 {
+        text-align: left;
         margin-top: 0;
     }
 
     .news-card-text p {
+        text-align: right;
         margin-bottom: 0;
     }
 
     .news-card-source {
         font-style: italic;
+        font-size: 0.8rem;
     }
 
     @media (max-width: 768px) {

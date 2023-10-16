@@ -1,6 +1,8 @@
-# NewsApp 
+# NewsApp - Inter IIT Tech Meet 12.0 - IIT KGP Development Team Selection Task
 
 ## Demonstration
+
+
 
 
 ## How to Run Locally? 
@@ -17,6 +19,8 @@
        - Optional, but recommended: Create a virtual environment using `python3 -m venv venv` or `virtualenv venv`
        - Activate the virtual environment using `source venv/bin/activate`
        - Run `pip install -r requirements.txt` to install all the dependencies
+       - Create a `.env` file in the `server/` directory and add the following environment variable:
+         - `NEWS_API_KEY` : Your News API key - Get it from [here](https://newsapi.org/)
        - Run `flask run` to start the server
        
        #### Setting up the frontend
