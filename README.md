@@ -11,7 +11,7 @@ https://github.com/ashwinpra/newsforum-dev-task/assets/62993493/281d8f86-7d99-47
 
 ## How to Run Locally? 
 ### Using Docker
-> ⚠️ I have not been able to implement dockerization properly, so this will not work, kindly proceed [here](https://github.com/ashwinpra/newsforum-dev-task/edit/main/README.md#without-docker)
+> ⚠️ I have not been able to implement dockerization properly, so this will not work, kindly proceed with the setup without Docker
 - Clone the repository
 - Navigate to the root directory
 - Run `docker-compose up`
