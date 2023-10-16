@@ -1,4 +1,4 @@
-# NewsApp - Inter IIT Tech Meet 12.0 - IIT KGP Development Team Selection Task
+# NewsApp - Inter IIT Tech Meet 12.0 - IIT KGP Dev Team Selection Task
 
 ## Demonstration
 
@@ -6,7 +6,7 @@
 https://github.com/ashwinpra/newsforum-dev-task/assets/62993493/281d8f86-7d99-47f3-a3d6-7d3c4e14d5b2
 
 
-
+---
 
 
 ## How to Run Locally? 
@@ -19,22 +19,29 @@ https://github.com/ashwinpra/newsforum-dev-task/assets/62993493/281d8f86-7d99-47
 
 ### Without Docker
    - Clone the repository
-   #### Setting up the backend 
-   - Navigate to `server/` directory
-   - Optional, but recommended: Create a virtual environment using `python3 -m venv venv` or `virtualenv venv`
-   - Activate the virtual environment using `source venv/bin/activate`
-   - Run `pip install -r requirements.txt` to install all the dependencies
-   - Create a `.env` file in the `server/` directory and add the following environment variable:
-     - `NEWS_API_KEY` : Your News API key - Get it from [here](https://newsapi.org/)
-   - Run `flask run` to start the server
+   - **Setting up the backend**
+      - Navigate to `server/` directory
+      - _(Optional, but recommended)_ Create a virtual environment using `python3 -m venv venv` or `virtualenv venv`
+      - Activate the virtual environment using `source venv/bin/activate`
+      - Run `pip install -r requirements.txt` to install all the dependencies
+      - Create a `.env` file in the `server/` directory and add the following environment variable:
+        - `NEWS_API_KEY` : Your News API key - Get it from [here](https://newsapi.org/)
+      - Run `flask run` to start the server
        
-   #### Setting up the frontend
-   - Navigate to the root directory
-   - Run `npm install` to install all the dependencies
-   - Run `npm run dev` to start the frontend server
+   - **Setting up the frontend**
+      - Navigate to the root directory
+      - Run `npm install` to install all the dependencies
+      - Run `npm run dev` to start the frontend server
 
    - Navigate to `localhost:5173` to view the app
 
+--- 
+## Tech Stack 
+- **Frontend:** Svelte
+- **Backend:** Python (Flask)
+- **Database:** Sqlite
+- **APIs:** NewsAPI
+--- 
 ## Problem Statement 
 
 - Clean and responsive front-end
